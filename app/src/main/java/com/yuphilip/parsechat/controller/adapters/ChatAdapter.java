@@ -60,12 +60,18 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
             holder.imageMe.setVisibility(View.VISIBLE);
             holder.imageOther.setVisibility(View.GONE);
+            holder.body.setBackgroundResource(R.drawable.tv_bubble);
             holder.body.setLayoutParams(params);
         } else {
+            final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.END_OF, R.id.ivProfileOther);
+            params.addRule(RelativeLayout.RIGHT_OF, R.id.ivProfileOther);
+            params.setMargins(8, 32, 8, 0);
+
             holder.imageOther.setVisibility(View.VISIBLE);
             holder.imageMe.setVisibility(View.GONE);
-            holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
             holder.body.setBackgroundResource(R.drawable.tv_bubble_other);
+            holder.body.setLayoutParams(params);
         }
 
         final ImageView profileView = isMe ? holder.imageMe : holder.imageOther;
