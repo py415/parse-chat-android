@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/btSend"
+                android:layout_margin="8dp"
                 android:layout_toStartOf="@+id/btSend"
                 android:autofillHints=""
                 android:gravity="top"
@@ -43,9 +44,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_bubble"
                 android:gravity="center"
-                android:paddingEnd="10dp"
                 android:text="@string/send"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
         </RelativeLayout>

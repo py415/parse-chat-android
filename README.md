@@ -19,7 +19,7 @@ Parse Chat is a chat client using Parse to explore the features of its ORM and b
 - [x] User shall be able to compose and send chat messages.
 - [x] User shall be able to view a list of chat messages in chronological order.
 - [x] Cell shall automatically adjust size to fit text.
-- [ ] User shall be able to see bubble design chat messages.
+- [x] User shall be able to see bubble design chat messages.
 
 ## App Walkthrough
 

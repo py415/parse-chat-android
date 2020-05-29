@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.yuphilip.parsechat.R;
 import com.yuphilip.parsechat.model.Message;
 
@@ -51,18 +53,27 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         final boolean isMe = message.getUserId() != null && message.getUserId().equals(mUserId);
 
         if (isMe) {
+            final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.START_OF, R.id.ivProfileMe);
+            params.addRule(RelativeLayout.LEFT_OF, R.id.ivProfileMe);
+            params.setMargins(8, 32, 8, 0);
+
             holder.imageMe.setVisibility(View.VISIBLE);
             holder.imageOther.setVisibility(View.GONE);
-            holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
+            holder.body.setLayoutParams(params);
         } else {
             holder.imageOther.setVisibility(View.VISIBLE);
             holder.imageMe.setVisibility(View.GONE);
             holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
+            holder.body.setBackgroundResource(R.drawable.tv_bubble_other);
         }
 
         final ImageView profileView = isMe ? holder.imageMe : holder.imageOther;
 
-        Glide.with(mContext).load(getProfileUrl(message.getUserId())).into(profileView);
+        Glide.with(mContext)
+                .load(getProfileUrl(message.getUserId()))
+                .apply(RequestOptions.circleCropTransform())
+                .into(profileView);
         holder.body.setText(message.getBody());
 
     }
