@@ -1,10 +1,11 @@
 package com.yuphilip.parsechat.model.net;
 
 import android.app.Application;
-import android.os.Build;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 import com.yuphilip.parsechat.BuildConfig;
+import com.yuphilip.parsechat.model.Message;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -15,12 +16,16 @@ public class ChatApplication extends Application {
     public void onCreate() {
 
         super.onCreate();
+        // ...
+        ParseObject.registerSubclass(Message.class);
 
-        // Use for monitoring Parse network traffic
+        // Use for monitoring Parse OkHttp traffic
+        // Can be Level.BASIC, Level.HEADERS, or Level.BODY
+        // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         // Can be Level.BASIC, Level.HEADERS, or Level.BODY
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpLoggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
         builder.networkInterceptors().add(httpLoggingInterceptor);
 
         // set applicationId and server based on the values in the Heroku settings.

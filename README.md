@@ -16,7 +16,10 @@ Parse Chat is a chat client using Parse to explore the features of its ORM and b
 ## Product Specs
 ### User Stories
 
-- [ ] Add user stories here...
+- [x] User shall be able to compose and send chat messages.
+- [x] User shall be able to view a list of chat messages in chronological order.
+- [x] Cell shall automatically adjust size to fit text.
+- [ ] User shall be able to see bubble design chat messages.
 
 ## App Walkthrough
 
@@ -26,7 +29,7 @@ Here's a GIF of how the app works:
 
 ## Libraries
 
-- [LIBRARY NAME](ADD_SOURCE_LINK_HERE) - Add a description here.
+- [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android.
 
 ## Backend
 
