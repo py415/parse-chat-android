@@ -25,7 +25,7 @@ Parse Chat is a chat client using Parse to explore the features of its ORM and b
 
 Here's a GIF of how the app works:
 
-<img src="https://github.com/py415/app-resources/blob/master/android/android-parse-chat.gif" width=250><br>
+<img src="https://raw.githubusercontent.com/py415/app-resources/master/android/android-parse-chat.gif" width="250" />
 
 ## Libraries
 
